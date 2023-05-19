@@ -65,4 +65,21 @@ export class Book {
   
         this.#pages = value;
       }
+
+      get authors() {
+        return this.#authors;
+      }
+  
+      set authors(allAuthors) {
+        const filtered = allAuthors.split(',').filter(x => x).map(element => element.trim()).join(',');
+        if (filtered.length === 0) {
+          throw new Error(`At least ${Book.#MIN_AUTHORS} author must be written!`);
+        }
+  
+        if (filtered.length < Book.#MIN_SYMBOLS_FOR_AUTHOR || filtered.length > Book.#MAX_SYMBOLS_FOR_AUTHOR) {
+          throw new Error(`Name of the author must be between ${Book.#MIN_SYMBOLS_FOR_AUTHOR} and ${Book.#MAX_SYMBOLS_FOR_AUTHOR}!`);
+        }
+  
+        this.#authors = filtered;
+      }
 }
