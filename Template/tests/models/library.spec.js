@@ -1,4 +1,4 @@
-import { libraryShelf, libraryShelf, libraryShelf } from '../../src/common/library-shelf.js';
+import { libraryShelf } from '../../src/common/library-shelf.js';
 import { Library } from '../../src/models/library.js';
 
 
